@@ -1,0 +1,29 @@
+% This is the start of every LaTeX document. The document class specifes the overall type of
+% document you are writing. 'article' is most common. 'report' is similar to 'article', but allows
+% for chapters. 'book' is for writin large books. 'beamer' for making presentations
+\documentclass{article}
+
+% Below are all the included packages. Packages add extra functionality to default LaTeX by adding
+% new macros or changing default behaviors
+\usepackage[margin=35mm]{geometry} % Controls layout of the page, including margins
+\usepackage{biblatex} % Controls bibliography and citations
+
+% Sets the title and author of the document. This is printed by \maketitle
+% If date is not specified with \date{}, the current date is used
+\title{\LaTeX Workshop}
+\author{Tim Quelch}
+
+% Add the references to the bibliography
+\addbibresource{references.bib}
+
+% All the actual content of the document goes in the document environment
+\begin{document}
+
+% Prints the title, author, and date.
+\maketitle
+
+``LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for the communication and publication of scientific documents. LaTeX is available as free software.'' \cite{latex_project_latex_????},
+Hello World!
+
+\printbibliography
+\end{document}
