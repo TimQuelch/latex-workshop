@@ -10,6 +10,8 @@
 \usepackage{listings}              % Source code layout, formatting and styling
 \usepackage{color}                 % Needed for coloring source code syntax
 \usepackage[hidelinks]{hyperref}   % Support for links. Autolinks citations, references, and TOC
+\usepackage{amsmath}               % Maths equations and aligns
+\usepackage{amssymb}               % More maths symbols
 
 % Sets the title and author of the document. This is printed by \maketitle
 % If date is not specified with \date{}, the current date is used
@@ -36,6 +38,9 @@
 	breaklines=true,           % Break lines, so they don't go over the page
 }
 
+% TODO config section numbers
+% TODO config font selection
+% TODO config fancy header
 
 % All the actual content of the document goes in the document environment
 \begin{document}
@@ -51,7 +56,7 @@
 
 \section{Introduction}
 ``\LaTeX{} is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. \LaTeX{} is the de facto standard for the communication and publication of scientific documents. \LaTeX{} is available as free software.''
-\cite{latex_project_latex_????},
+\cite{latex_project_latex_2018},
 
 One of the key differences in \LaTeX{} to more common work processors (MS Word, LibreOffice etc.) is the separation of content and presentation. In \LaTeX{} the author describes the general structure of the document (section headings, paragraphs, equations, figures), and the layout and typesetting is handled by \LaTeX{} (or rather the underlying \TeX{} backend).
 
@@ -79,15 +84,66 @@ Environments are how we write larger sections of the document which often contai
 \section{Useful structure things} % TODO rename?
 
 \subsection{Sections}
+Sections are used to divide the document into parts. A new section is started with the \lstinline|\section{sectionname}| macro. Section titles are formatted to be bigger, bolded, and automatically numbered.
+
+\subsection{Subsections}
+We can also split sections into smaller \lstinline|\subsections{subsectionname}|
+\subsubsection{Subsubsection}
+... and \lstinline|\subsubsections{subsubsectionname}|
+
 % TODO
+
+% TODO snippe to turn off all numbering
 
 \subsection{Lists}
 % TODO
+
+Dot point lists are created with the \lstinline{itemize} environment
+\begin{itemize}
+  \item Each item begins with the \lstinline{\item} macro
+  \item another item
+  \item another item
+    \begin{itemize}
+      \item You can also do nested lists by just starting a new \lstinline{itemize} environment
+        \begin{itemize}
+          \item And the marker changes for each level you are on
+            \begin{itemize}
+              \item List markers and spacing and spacing can be customised with the \lstinline{enumitem} package
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+Numbered lists are created with the \lstinline{enumerate} environment
+\begin{enumerate}
+  \item Each item begins with the \lstinline{\item} macro
+  \item another item
+  \item another item
+    \begin{enumerate}
+      \item You can also do nested lists by just starting a new \lstinline{enumerate} environment
+        \begin{enumerate}
+          \item And the marker changes for each level you are on
+            \begin{enumerate}
+              \item List markers and spacing and spacing can be customised with the \lstinline{enumitem} package
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
 
 \section{Maths}
 
 % TODO aligns, equations,
 % TODO Text, greek symbols
+
+\href{https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf}{The Great, Big List of \LaTeX{} Symbols} \cite{carlisle_great_2001}
+
+\begin{equation}
+    \alpha \beta \gamma \delta \epsilon \varepsilon \zeta \eta \theta \vartheta \iota \kappa \lambda \mu \nu \xi \pi \varpi \rho \varrho \sigma \varsigma \tau \upsilon \phi \varphi \chi \psi \omega
+\end{equation}
+\begin{equation}
+    \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega
+\end{equation}
 % TODO Proof environment
 
 \section{Figures, Tables, and Code}
