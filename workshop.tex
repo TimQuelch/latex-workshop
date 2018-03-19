@@ -4,17 +4,38 @@
 \documentclass{article}
 
 % Below are all the included packages. Packages add extra functionality to default LaTeX by adding
-% new macros or changing default behaviors
+% new macros or changing default behaviours
 \usepackage[margin=35mm]{geometry} % Controls layout of the page, including margins
-\usepackage{biblatex} % Controls bibliography and citations
+\usepackage{biblatex}              % Controls bibliography and citations
+\usepackage{listings}              % Source code layout, formatting and styling
+\usepackage{color}                 % Needed for coloring source code syntax
+\usepackage[hidelinks]{hyperref}   % Support for links. Autolinks citations, references, and TOC
 
 % Sets the title and author of the document. This is printed by \maketitle
 % If date is not specified with \date{}, the current date is used
-\title{\LaTeX Workshop}
+\title{\LaTeX{} Workshop}
 \author{Tim Quelch}
 
 % Add the references to the bibliography
 \addbibresource{references.bib}
+
+% Style options for souce code blocks (listing environment, and \lstinline{} macro)
+\lstset{
+	language=TeX,              % Language for syntax highlighting
+	basicstyle=\ttfamily,      % Style for fonts
+	numbers=left,              % Line numbers
+	numberstyle=\tiny,         % Line number style
+	frame=tb,                  % Frame lines on top and bottom
+	tabsize=4,                 % Size of tabs
+	columns=fixed,             % Fix character columns
+	showstringspaces=false,    % Don't underscore spaces
+	showtabs=false,            % Don't underscore tabs
+	keepspaces,                % Keep spaces as spaces, not whitespace
+	commentstyle=\color{red},  % Colour comments as red
+	% keywordstyle=\color{blue},% Colour keywords as blue
+	breaklines=true,           % Break lines, so they don't go over the page
+}
+
 
 % All the actual content of the document goes in the document environment
 \begin{document}
@@ -22,8 +43,70 @@
 % Prints the title, author, and date.
 \maketitle
 
-``LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for the communication and publication of scientific documents. LaTeX is available as free software.'' \cite{latex_project_latex_????},
-Hello World!
+\tableofcontents
+\newpage
+
+\section{Introduction}
+``\LaTeX{} is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. \LaTeX{} is the de facto standard for the communication and publication of scientific documents. \LaTeX{} is available as free software.''
+\cite{latex_project_latex_????},
+
+One of the key differences in \LaTeX{} to more common work processors (MS Word, LibreOffice etc.) is the separation of content and presentation. In \LaTeX{} the author describes the general structure of the document (section headings, paragraphs, equations, figures), and the layout and typesetting is handled by \LaTeX{} (or rather the underlying \TeX{} backend).
+
+There are several advantages to this:
+\begin{itemize}
+  \item Author can focus on the actual content, rather than making everything look pretty
+  \item Presentation can be changed easily without major formatting reworks throughout the document
+  \item A standard(ish) format for submission to external publishers, who can then apply their own layout/presentation styles
+\end{itemize}
+
+\LaTeX{} is written in plain text, and is processed by an external program to generate the output files (usually a PDF)
+
+\subsection{Pronounciation and Spelling}
+\LaTeX{} is always \emph{lah-tech}, and sometimes \emph{lay-tech}. It is never pronounced \emph{lay-tecks}. It is always written with the \lstinline|\LaTeX{}| macro (output is the weird sized and spaced \LaTeX{}), or with the capitialistaion LaTeX.
+
+\subsection{Basic Structure}
+There are two major language structures that you will encounter when using \LaTeX{}: macros, and environments.
+
+Macros are how we tell \LaTeX{} to do things. They take the general form of \lstinline{\commandname}, or with arguments \lstinline|\commandname[optional args]{required args}|. Macros can do anything from printing the table of contents (\lstinline{\tableofcontents}), \emph{emphasising} or \textbf{bolding} text (\lstinline|\emph{emphasising},\textbf{bolding}|), or even printing the funny \LaTeX{} logo (\lstinline|\LaTeX{}|). It is even possible to define your own macros to simplify things you are repeating often.
+
+Environments are how we write larger sections of the document which often contain many lines or macros. Environments begin with a \lstinline|\begin{environmentname}| macro, and end with a \lstinline|\end{environmenname}| macro. Common environments include \lstinline{figure}, \lstinline{equation}, \lstinline{itemize} (these will be discussed later).
+
+% TODO Preamble document environment
+
+\section{Useful structure things} % TODO rename?
+
+\subsection{Sections}
+% TODO
+
+\subsection{Lists}
+% TODO
+
+\section{Maths}
+
+% TODO aligns, equations,
+% TODO Text, greek symbols
+% TODO Proof environment
+
+\section{Figures, Tables, and Code}
+
+% TODO
+
+\subsection{References \& Labels}
+
+% TODO
+
+\subsection{\LaTeX{} knows better than you}
+
+% TODO
+
+\subsection{Build your own}
+
+% TODO
+
+\section{Citations}
+
+% TODO
 
 \printbibliography
+
 \end{document}
