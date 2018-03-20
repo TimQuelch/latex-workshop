@@ -12,6 +12,9 @@
 \usepackage[hidelinks]{hyperref}   % Support for links. Autolinks citations, references, and TOC
 \usepackage{amsmath}               % Maths equations and aligns
 \usepackage{amssymb}               % More maths symbols
+\usepackage{graphicx}              % For including images
+\usepackage{subcaption}            % For using subfigures
+\usepackage{booktabs}              % For prettier looking tables and better rules
 
 % Sets the title and author of the document. This is printed by \maketitle
 % If date is not specified with \date{}, the current date is used
@@ -165,7 +168,40 @@ Numbered lists are created with the \lstinline{enumerate} environment
 
 \section{Figures, Tables, and Code}
 
-% TODO
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{cat.jpg}
+    \caption{This is a caption for the figure. The figure numbering is automatic}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[height=5.5cm]{rabbit.jpg}
+        \caption{The first subfigure}
+    \end{subfigure}
+    ~
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[height=5.5cm]{turtle.jpg}
+        \caption{The second subfigure}
+    \end{subfigure}
+    \caption{A caption for both subfigures}
+\end{figure}
+
+\begin{table}
+    \centering
+    \caption{Caption for a table. This generally goes above the table}
+    \begin{tabular}{lrr}
+      \toprule
+      & Column 1 & Column 2 \\
+      \midrule
+      Row 1 & 7 & 2 \\
+      Row 2 & 8 & 9 \\
+      Row 3 & 2 & 0 \\
+      Row 4 & 4 & 1 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{References \& Labels}
 
