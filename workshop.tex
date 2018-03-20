@@ -181,6 +181,8 @@ Bringing all of these together can give pretty equations like:
 
 \section{Figures, Tables, and Code}
 
+Figures and tables can be added to the document either raw or by using floats. Floats let \LaTeX{} algorithmically place the figures in the document to look good. The float environment for figures is \lstinline{figure} and for tables is \lstinline{table} (suprise suprise). 
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{cat.jpg}
@@ -215,6 +217,11 @@ Bringing all of these together can give pretty equations like:
       \bottomrule
     \end{tabular}
 \end{table}
+
+Lists of figures and tables can be printed similarly to a table of contents with 
+
+\listoffigures
+\listoftables
 
 \subsection{References \& Labels}
 
