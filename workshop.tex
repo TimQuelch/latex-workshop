@@ -92,9 +92,7 @@ The preamble also includes all the package inclusions for the document with the 
 Any extra configuration for styling and layout is also done in the preamble.
 
 \subsection{\lstinline{document} Environment}
-All of the actual content of the document goes in the \lstinline{document} environment
-
-% TODO Preamble document environment
+All of the actual content of the document goes in the \lstinline{document} environment.
 
 \section{Useful structure things} % TODO rename?
 
@@ -104,24 +102,17 @@ Sections are used to divide the document into parts. A new section is started wi
 The table of contents (\lstinline{\tableofcontents}) is generated from the section headings. All the page numbers and section numbers are set automatically.
 
 \subsection{Subsections}
-We can also split sections into smaller \lstinline|\subsections{subsectionname}|
+We can also split sections into smaller \lstinline|\subsection{subsectionname}|
 \subsubsection{Subsubsection}
-... and \lstinline|\subsubsections{subsubsectionname}|
+... and \lstinline|\subsubsection{subsubsectionname}|
 
 \subsection*{Unnumbered sections}
 Sections and subsections can be unnumbered if they are declared with an asterisk. e.g.\ \lstinline|\section*{section name}|. The current subsection is un numbered in this way
 
-% TODO
-
-% TODO snippe to turn off all numbering
-
 \subsection{Lists}
-% TODO
-
 Dot point lists are created with the \lstinline{itemize} environment
 \begin{itemize}
   \item Each item begins with the \lstinline{\item} macro
-  \item another item
   \item another item
     \begin{itemize}
       \item You can also do nested lists by just starting a new \lstinline{itemize} environment
@@ -138,7 +129,6 @@ Dot point lists are created with the \lstinline{itemize} environment
 Numbered lists are created with the \lstinline{enumerate} environment
 \begin{enumerate}
   \item Each item begins with the \lstinline{\item} macro
-  \item another item
   \item another item
     \begin{enumerate}
       \item You can also do nested lists by just starting a new \lstinline{enumerate} environment
