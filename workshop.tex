@@ -72,12 +72,24 @@ There are several advantages to this:
 \subsection{Pronounciation and Spelling}
 \LaTeX{} is always \emph{lah-tech}, and sometimes \emph{lay-tech}. It is never pronounced \emph{lay-tecks}. It is always written with the \lstinline|\LaTeX{}| macro (output is the weird sized and spaced \LaTeX{}), or with the capitialistaion LaTeX.
 
-\subsection{Basic Structure}
+\subsection{Language Structures}
 There are two major language structures that you will encounter when using \LaTeX{}: macros, and environments.
 
 Macros are how we tell \LaTeX{} to do things. They take the general form of \lstinline{\commandname}, or with arguments \lstinline|\commandname[optional args]{required args}|. Macros can do anything from printing the table of contents (\lstinline{\tableofcontents}), \emph{emphasising} or \textbf{bolding} text (\lstinline|\emph{emphasising},\textbf{bolding}|), or even printing the funny \LaTeX{} logo (\lstinline|\LaTeX{}|). It is even possible to define your own macros to simplify things you are repeating often.
 
 Environments are how we write larger sections of the document which often contain many lines or macros. Environments begin with a \lstinline|\begin{environmentname}| macro, and end with a \lstinline|\end{environmenname}| macro. Common environments include \lstinline{figure}, \lstinline{equation}, \lstinline{itemize} (these will be discussed later).
+
+\subsection{The Preamble}
+The preamble contains all the configuration and setup before the actual content.
+
+The first line of the preamble is setting the \lstinline{\documentclass}. This tells \LaTeX{} what kind of document you are writing. The most common one used is \lstinline{article}. Other ones include \lstinline{report} which is similar to \lstinline{article}, but allows for chapters. \lstinline{book} is for writin large books. You can even write powerpoint presentations with the \lstinline{beamer} class.
+
+The preamble also includes all the package inclusions for the document with the \lstinline|\usepackage{packagename}| macro. Packages add extra functionality to default \LaTeX{} by adding new macros or changing default behaviours. For example, the \lstinline{amsmath} package adds support for more maths environments and symbols, \lstinline{graphicx} allows for the inclusion of image files for figures.
+
+Any extra configuration for styling and layout is also done in the preamble.
+
+\subsection{\lstinline{document} Environment}
+All of the actual content of the document goes in the \lstinline{document} environment
 
 % TODO Preamble document environment
 
@@ -86,10 +98,15 @@ Environments are how we write larger sections of the document which often contai
 \subsection{Sections}
 Sections are used to divide the document into parts. A new section is started with the \lstinline|\section{sectionname}| macro. Section titles are formatted to be bigger, bolded, and automatically numbered.
 
+The table of contents (\lstinline{\tableofcontents}) is generated from the section headings. All the page numbers and section numbers are set automatically.
+
 \subsection{Subsections}
 We can also split sections into smaller \lstinline|\subsections{subsectionname}|
 \subsubsection{Subsubsection}
 ... and \lstinline|\subsubsections{subsubsectionname}|
+
+\subsection*{Unnumbered sections}
+Sections and subsections can be unnumbered if they are declared with an asterisk. e.g.\ \lstinline|\section*{section name}|. The current subsection is un numbered in this way
 
 % TODO
 
