@@ -5,8 +5,8 @@
 
 % Below are all the included packages. Packages add extra functionality to default LaTeX by adding
 % new macros or changing default behaviours
-\usepackage[margin=35mm]{geometry} % Controls layout of the page, including margins
-\usepackage[style=apa]{biblatex}              % Controls bibliography and citations
+\usepackage[margin=25mm]{geometry} % Controls layout of the page, including margins
+\usepackage[style=ieee]{biblatex}  % Controls bibliography and citations
 \usepackage{listings}              % Source code layout, formatting and styling
 \usepackage{color}                 % Needed for coloring source code syntax
 \usepackage[hidelinks]{hyperref}   % Support for links. Autolinks citations, references, and TOC
@@ -14,7 +14,7 @@
 \usepackage{amssymb}               % More maths symbols
 \usepackage{graphicx}              % For including images
 \usepackage{subcaption}            % For using subfigures
-\usepackage{booktabs}              % For prettier looking tables and better rules
+\usepackage{booktabs}              % For prettier looking tables
 
 % Sets the title and author of the document. This is printed by \maketitle
 % If date is not specified with \date{}, the current date is used
@@ -41,9 +41,18 @@
 	breaklines=true,           % Break lines, so they don't go over the page
 }
 
-% TODO config section numbers
-% TODO config font selection
-% TODO config fancy header
+% To change the serif font uncomment one of the following
+% \usepackage{courier}
+% \usepackage{times}
+
+% If you want to use a sans serif font uncomment the following and one of the font packages
+% \renewcommand{\familydefault}{\sfdefault}
+% \usepackage{helvet}
+% \usepackage{avant}
+
+% For fancy headers uncomment/modify the following
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
 
 % All the actual content of the document goes in the document environment
 \begin{document}
@@ -96,7 +105,7 @@ Any extra configuration for styling and layout is also done in the preamble.
 \subsection{\lstinline{document} Environment}
 All of the actual content of the document goes in the \lstinline{document} environment.
 
-\section{Useful structure things} % TODO rename?
+\section{Basic Structure}
 
 \subsection{Sections}
 Sections are used to divide the document into parts. A new section is started with the \lstinline|\section{sectionname}| macro. Section titles are formatted to be bigger, bolded, and automatically numbered.
@@ -241,12 +250,12 @@ Source code can also be included with the \lstinline{listing} environment. In ad
 \begin{figure}
 \caption{An example listing}
 \begin{lstlisting}[language=c++,keywordstyle=\color{blue}]
-#include <iostream>
+    #include <iostream>
 
-int main() {
-    std::cout << "Hello World!" << std::endl;
-    return 0;
-}
+    int main() {
+        std::cout << "Hello World!" << std::endl;
+        return 0;
+    }
 \end{lstlisting}
 \end{figure}
 
@@ -286,18 +295,21 @@ There are several placement specifiers that we can provide to the float commands
     \end{tabular}
 \end{table}
 
-% TODO
-
 \section{Citations}
-There are many ways to manage bibliographies, citations, and reference lists in \LaTeX{}, and many of them are outdated or have been superseded by newer alternatives. The method that I use is with a combination of BibLaTeX and Biber. BibLaTeX is the frontend in \LaTeX{} that handles citations and printing the bibliography. Biber is the backend which manages the database of all the references.
+There are many ways to manage bibliographies, citations, and reference lists in \LaTeX{}, and many of them are outdated or have been superseded by newer alternatives. The method that I use is with a combination of BibLaTeX and Biber. BibLaTeX is the frontend in \LaTeX{} that handles citations and printing the bibliography. Biber is the backend which manages the database of all the references. The \lstinline{biblatex} package needs to be included with \lstinline|\usepackage[style=ieee]{biblatex}| in the preamble. The IEEE style can be replaced with others, such as APA. This changes both the citation and bibliography style.
 
-References are stored in a database file with a \lstinline{.bib} extension. An example database file for the sources used in this document is shown below (note: I am including the file with \lstinline|\lstinputlisting{filename}|, which turns a file into a source code listing). Each entry in the database file refers to an source, with the necessary fields filled. 
+References are stored in a database file with a \lstinline{.bib} extension. An example database file for the sources used in this document is shown below. Each entry in the database file refers to an source, with the necessary fields filled. In the preamble, the database file needs to be added with \lstinline|\addbibresource{references.bib}|.
 
 These sources can be cited with \lstinline|\cite{referencename}| (no parentheses) or \lstinline|\parencite{referencename}| (with parentheses). For example \parencite{strzodka_gpu-accelerated_2013} \parencite{yu_gpu_2014}
 
-\lstinputlisting{references.bib}
+At the end of the document, the bibliography can be printed with \lstinline{\printbibliography}. It will only print sources that are actually cited in the document.
 
-
+\section{Other Resources}
+\begin{itemize}
+  \item The \LaTeX{} Wikibook -- Good reference documentation and guides -- \url{https://en.wikibooks.org/wiki/LaTeX}
+  \item The \TeX{} Stack Exchange -- Answers to most of your questions -- \url{https://tex.stackexchange.com/}
+  \item Comprehensive \TeX{} Archive Network (CTAN) -- Package database -- \url{https://ctan.org/}
+\end{itemize}
 
 \printbibliography
 
