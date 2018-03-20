@@ -153,10 +153,31 @@ Numbered lists are created with the \lstinline{enumerate} environment
 
 \section{Maths}
 
-% TODO aligns, equations,
-% TODO Text, greek symbols
+One of \LaTeX{}'s strengths is the formatting of maths. The easiest way to layout maths is with the inline maths mode, which is used by surrounding expressions with \$s. e.g.\ $a + b = c$. \LaTeX{} automatically handles spacing and formatting of maths.
 
-\href{https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf}{The Great, Big List of \LaTeX{} Symbols} \cite{carlisle_great_2001}
+In order to print an equation on its own line, you can use the \lstinline{equation} environment. To make things super script, \lstinline{^} is used, and to make things subscript, \lstinline{_} is used. Fractions are formatted with the \lstinline|\frac{numerator}{denominator}| macro
+\begin{equation}
+    a^2 + b^2  = \frac{r}{c}
+\end{equation}
+
+The \lstinline{equation} environment only allows for a single line of maths, if multiple lines are required, the \lstinline{align} environment can be used. In addition to allowing multiple lines, \lstinline{align} also allows you to align each line at a point specified by an \lstinline{&}. Below, each line is aligned on the $=$ sign.
+
+\begin{align}
+  0 &= ax^2 + bx + c \\
+  0 &= a(x^2 + \frac{b}{a}x) + c \\
+  a(\frac{b}{2a})^2 &= a(x^2 + \frac{b}{a}x + (\frac{b}{2a})^2) + c \\
+  \frac{b^2-4ac}{4a^2} &= (x +\frac{b}{2a})^2 \\
+  x &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{align}
+
+If you want to write normal text in maths mode, you need to use the \lstinline{\text} macro
+
+\begin{align}
+  \text{this text is written in text mode} \\
+  this text is written in math mode
+\end{align}
+
+\LaTeX{} provides a lot of different  symbols that can be  used in math mode including the greek alphabet (shown below). A more extensive list can be found at \href{https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf}{The Great, Big List of \LaTeX{} Symbols} \cite{carlisle_great_2001}
 
 \begin{equation}
     \alpha \beta \gamma \delta \epsilon \varepsilon \zeta \eta \theta \vartheta \iota \kappa \lambda \mu \nu \xi \pi \varpi \rho \varrho \sigma \varsigma \tau \upsilon \phi \varphi \chi \psi \omega
@@ -164,7 +185,9 @@ Numbered lists are created with the \lstinline{enumerate} environment
 \begin{equation}
     \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega
 \end{equation}
-% TODO Proof environment
+
+Bringing all of these together can give pretty equations like:
+% TODO fancy equation
 
 \section{Figures, Tables, and Code}
 
